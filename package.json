@@ -1,0 +1,20 @@
+{
+  "name": "webcv",
+  "version": "0.0.1",
+  "description": "Add easily your CV to your web site using json",
+  "main": "webcv.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web",
+    "CV",
+    "json"
+  ],
+  "author": "Marco Vidal García <marcovidal67@gmail.com> (http://mvidalgarcia.com)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  }
+}
