@@ -1,4 +1,17 @@
-<div class='cv-panel container'>
+<div class='edit-panel container col-md-4'>
+  Name:
+  <input type="text" ng-model="cv.basics.name">
+  Email:
+  <input type="text" ng-model="cv.basics.email">
+  Phone:
+  <input type="text" ng-model="cv.basics.phone">
+  Website:
+  <input type="text" ng-model="cv.basics.website">
+  Summary:
+  <input type="text" ng-model="cv.basics.summary">
+</div> <!-- end edit panel -->
+
+<div class='cv-panel container col-md-8'>
   <h1>{{cv.basics.name}}</h1>
   {{cv.basics.email}}
   {{cv.basics.phone}}

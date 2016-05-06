@@ -14,6 +14,10 @@ webcvApp.config(['$routeProvider',
         templateUrl: 'partials/cv.html',
         controller: 'CVCtrl'
       }).
+      when('/edit', {
+        templateUrl: 'partials/edit.html',
+        controller: 'EditCVCtrl'
+      }).
       otherwise({
         redirectTo: '/'
       });
