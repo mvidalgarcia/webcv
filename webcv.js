@@ -1,3 +1,4 @@
+var express = require('express');
 var fs = require('fs');  // For reading files
 var path = require('path');
 
@@ -15,31 +16,38 @@ var DEFAULT_PORT = 3000;
  *            - {int} port - Port to listen to (default 3000).
  */
 var webcv = function(app, opt) {
-  // View engine setup
-  app.set('views', path.join(__dirname, 'views'));
-  app.set('view engine', 'jade');
 
   opt = opt || {};
   url = opt.url || DEFAULT_URL;
   port = opt.port || DEFAULT_PORT;
   filename = opt.filename || DEFAULT_FILENAME;
 
-  console.log('Executing webcv, serving in /' + url + '...');
-  /* HTTP GET */
-  app.get('/'+url, function (req, res, next) {
-    console.log('Request to /'+url);
+  console.log('Executing webcv, serving in [/api]/' + url + '...');
+
+  /*
+   * HTTP GET to provide API with CV info
+   */
+  app.get('/api/'+url, function (req, res, next) {
+    console.log('Incoming request to /api/'+url);
 
     /* Read file asynchronously */
     var obj;
     fs.readFile(filename, 'utf8', function (err, data) {
       if (err) throw err;
       obj = JSON.parse(data);
-      res.render('index', { cv: obj });
+      res.json(obj);
     });
 
   });
 
-  /* Optional ExpressJS Listen */
+  /*
+   * HTTP GET to provide static files (AngularJS app)
+   */
+  app.use('/cv', express.static(path.join(__dirname, '/public')));
+
+  /*
+   * Optional ExpressJS Listen
+   */
   if (opt.listen) {
     app.listen(port, function () {
       console.log('Listening on port '+port+'!');
