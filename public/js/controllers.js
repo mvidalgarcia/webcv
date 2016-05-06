@@ -4,8 +4,9 @@
 
 var webcvControllers = angular.module('webcvControllers', []);
 
-/* CV Controller */
-
+/*
+ * CV Controller
+ */
 webcvControllers.controller('CVCtrl',
   function($rootScope, $scope, $http) {
     /* Request JSON CV from internal API */
@@ -19,8 +20,9 @@ webcvControllers.controller('CVCtrl',
 );
 
 
-/* Edit CV Controller */
-
+/*
+ * Edit CV Controller
+ */
 webcvControllers.controller('EditCVCtrl',
   function($rootScope, $scope, $http) {
     /* Request JSON CV from internal API */
@@ -30,5 +32,15 @@ webcvControllers.controller('EditCVCtrl',
       /* Dynamically change HTML title field */
       $rootScope.title = data.basics.name;
     });
+
+    /* TODO showing scope for now  */
+    $('#save').click(function() {
+      console.log($scope);
+    });
+
+    /* Add skill dynamically */
+    $scope.addSkill = function() {
+      $scope.cv.skills.push({ name: "", level: "", keywords: [""]});
+    }
   }
 );

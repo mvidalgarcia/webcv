@@ -1,4 +1,5 @@
 <div class='edit-panel container col-md-4'>
+  <h3>Personal</h3>
   Name:
   <input type="text" ng-model="cv.basics.name">
   Email:
@@ -9,6 +10,38 @@
   <input type="text" ng-model="cv.basics.website">
   Summary:
   <input type="text" ng-model="cv.basics.summary">
+  <h3>Skills</h3>
+  <div ng-repeat="skill in cv.skills">
+    Name:
+    <input type="text" ng-model="skill.name">
+    Level:
+    <input type="text" ng-model="skill.level">
+    Keywords:
+    <ul ng-repeat="kw in skill.keywords track by $index">
+      <li><input type="text" ng-model="skill.keywords[$index]"></li>
+    </ul>
+  </div>
+  <button ng-click="addSkill()" type="button" >Add skill</button>
+  <h3>Experience</h3>
+  <div ng-repeat="work in cv.work">
+    Company:
+    <input type="text" ng-model="work.company">
+    Position:
+    <input type="text" ng-model="work.position">
+    Website:
+    <input type="text" ng-model="work.website">
+    Start date:
+    <input type="text" ng-model="work.startDate">
+    End date:
+    <input type="text" ng-model="work.endDate">
+    Summary:
+    <input type="text" ng-model="work.summary">
+    Highlights:
+    <ul ng-repeat="hl in work.highlights track by $index">
+      <li><input type="text" ng-model="work.highlights[$index]"></li>
+    </ul>
+  </div>
+  <button id="save" type="button" name="button">Save</button>
 </div> <!-- end edit panel -->
 
 <div class='cv-panel container col-md-8'>
@@ -21,8 +54,9 @@
   <div ng-repeat="skill in cv.skills">
     {{skill.name}}
     {{skill.level}}
-    <ul ng-repeat="keyword in skill.keywords">
-      <li>{{keyword}}</li>
+    <ul ng-repeat="kw in skill.keywords track by $index">
+      <!-- Using $index to allow data binding in nested arrays -->
+      <li>{{skill.keywords[$index]}}</li>
     </ul>
   </div>
   <h2 ng-if="cv.work.length > 0">EXPERIENCE</h2>
@@ -33,8 +67,8 @@
     {{work.startDate}}
     {{work.endDate}}
     {{work.summary}}
-    <ul ng-repeat="hl in work.highlights">
-      <li>{{hl}}</li>
+    <ul ng-repeat="hl in work.highlights track by $index">
+      <li>{{work.highlights[$index]}}</li>
     </ul>
   </div>
   <h2 ng-if="cv.volunteer.length > 0">VOLUNTEERING</h2>
