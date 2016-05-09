@@ -1,48 +1,189 @@
 <div class='edit-panel container col-md-4'>
-  <h3>Personal</h3>
-  Name:
-  <input type="text" ng-model="cv.basics.name">
-  Email:
-  <input type="text" ng-model="cv.basics.email">
-  Phone:
-  <input type="text" ng-model="cv.basics.phone">
-  Website:
-  <input type="text" ng-model="cv.basics.website">
-  Summary:
-  <input type="text" ng-model="cv.basics.summary">
-  <h3>Skills</h3>
-  <div ng-repeat="skill in cv.skills track by $index">
+  <section class="personal">
+    <h3>Personal</h3>
     Name:
-    <input type="text" ng-model="skill.name">
-    Level:
-    <input type="text" ng-model="skill.level">
-    <button ng-click="deleteSkill($index)" type="button">Delete skill</button>
-    Keywords:
-    <ul ng-repeat="kw in skill.keywords track by $index">
-      <li><input type="text" ng-model="skill.keywords[$index]"><span ng-click="deleteSkillKeyword($parent.$index, $index)" class="glyphicon glyphicon-remove"></span></li>
-    </ul>
-    <button ng-click="addSkillKeyword($index)" type="button">Add keyword</button>
-  </div>
-  <button ng-click="addSkill()" type="button">Add skill</button>
-  <h3>Experience</h3>
-  <div ng-repeat="work in cv.work">
-    Company:
-    <input type="text" ng-model="work.company">
-    Position:
-    <input type="text" ng-model="work.position">
+    <input type="text" ng-model="cv.basics.name">
+    Email:
+    <input type="text" ng-model="cv.basics.email">
+    Phone:
+    <input type="text" ng-model="cv.basics.phone">
     Website:
-    <input type="text" ng-model="work.website">
-    Start date:
-    <input type="text" ng-model="work.startDate">
-    End date:
-    <input type="text" ng-model="work.endDate">
+    <input type="text" ng-model="cv.basics.website">
     Summary:
-    <input type="text" ng-model="work.summary">
-    Highlights:
-    <ul ng-repeat="hl in work.highlights track by $index">
-      <li><input type="text" ng-model="work.highlights[$index]"></li>
-    </ul>
+    <input type="text" ng-model="cv.basics.summary">
+  </section> <!-- end personal -->
+  <section class="skills">
+    <h3>Skills</h3>
+    <div ng-repeat="skill in cv.skills track by $index">
+      Name:
+      <input type="text" ng-model="skill.name">
+      Level:
+      <input type="text" ng-model="skill.level">
+      <button ng-click="deleteSkill($index)" type="button">Delete skill</button>
+      Keywords:
+      <ul ng-repeat="kw in skill.keywords track by $index">
+        <li>
+          <input type="text" ng-model="skill.keywords[$index]">
+          <span ng-click="deleteSkillKeyword($parent.$index, $index)" class="glyphicon glyphicon-remove"></span>
+        </li>
+      </ul>
+      <button ng-click="addSkillKeyword($index)" type="button">Add keyword</button>
+    </div>
+    <button ng-click="addSkill()" type="button">Add skill</button>
+  </section> <!-- end skills -->
+  <section class="experience">
+    <h3>Experience</h3>
+    <div ng-repeat="work in cv.work track by $index">
+      Company:
+      <input type="text" ng-model="work.company">
+      Position:
+      <input type="text" ng-model="work.position">
+      Website:
+      <input type="text" ng-model="work.website">
+      Start date:
+      <input type="text" ng-model="work.startDate">
+      End date:
+      <input type="text" ng-model="work.endDate">
+      Summary:
+      <input type="text" ng-model="work.summary">
+      <button ng-click="deleteExperience($index)" type="button">Delete experience</button>
+      Highlights:
+      <ul ng-repeat="hl in work.highlights track by $index">
+        <li>
+          <input type="text" ng-model="work.highlights[$index]">
+          <span ng-click="deleteExpHighlight($parent.$index, $index)" class="glyphicon glyphicon-remove"></span>
+        </li>
+      </ul>
+      <button ng-click="addExpHighlight($index)" type="button">Add highlight</button>
+    </div>
+    <button ng-click="addExperience()" type="button">Add experience</button>
+  </section> <!-- end experience -->
+  <section class="volunteering">
+    <h3>Volunteering</h3>
+    <div ng-repeat="volunteer in cv.volunteer track by $index">
+      Organization:
+      <input type="text" ng-model="volunteer.organization">
+      Position:
+      <input type="text" ng-model="volunteer.position">
+      Website:
+      <input type="text" ng-model="volunteer.website">
+      Start date:
+      <input type="text" ng-model="volunteer.startDate">
+      End date:
+      <input type="text" ng-model="volunteer.endDate">
+      Summary:
+      <input type="text" ng-model="volunteer.summary">
+      <button ng-click="deleteVolunteering($index)" type="button">Delete volunteering</button>
+      Highlights:
+      <ul ng-repeat="v_hl in volunteer.highlights track by $index">
+        <li>
+          <input type="text" ng-model="volunteer.highlights[$index]">
+          <span ng-click="deleteVolHighlight($parent.$index, $index)" class="glyphicon glyphicon-remove"></span>
+        </li>
+      </ul>
+      <button ng-click="addVolHighlight($index)" type="button">Add highlight</button>
+    </div>
+    <button ng-click="addVolunteering()" type="button">Add volunteering</button>
+  </section> <!-- end volunteering -->
+  <section class="education">
+    <h3>Education</h3>
+    <div ng-repeat="edu in cv.education track by $index">
+      Institution:
+      <input type="text" ng-model="edu.institution">
+      Area:
+      <input type="text" ng-model="edu.area">
+      Study type:
+      <input type="text" ng-model="edu.studyType">
+      Start date:
+      <input type="text" ng-model="edu.startDate">
+      End date:
+      <input type="text" ng-model="edu.endDate">
+      GPA:
+      <input type="text" ng-model="edu.gpa">
+      <button ng-click="deleteEducation($index)" type="button">Delete education</button>
+      Courses:
+      <ul ng-repeat="course in edu.courses track by $index">
+        <li>
+          <input type="text" ng-model="edu.courses[$index]">
+          <span ng-click="deleteEduCourse($parent.$index, $index)" class="glyphicon glyphicon-remove"></span>
+        </li>
+      </ul>
+      <button ng-click="addEduCourse($index)" type="button">Add course</button>
+    </div>
+    <button ng-click="addEducation()" type="button">Add education</button>
+  </section> <!-- end education -->
+  <section class="awards">
+    <h3>Awards</h3>
+    <div ng-repeat="award in cv.awards track by $index">
+      Title:
+      <input type="text" ng-model="award.title">
+      Date:
+      <input type="text" ng-model="award.date">
+      Awarder:
+      <input type="text" ng-model="award.awarder">
+      Summary:
+      <input type="text" ng-model="award.summary">
+      <button ng-click="deleteAward($index)" type="button">Delete award</button>
+    </div>
+    <button ng-click="addAward()" type="button">Add award</button>
+  </section> <!-- end awards -->
+  <section class="publications">
+    <h3>Publications</h3>
+    <div ng-repeat="pub in cv.publications track by $index">
+      Name:
+      <input type="text" ng-model="pub.name">
+      Publisher:
+      <input type="text" ng-model="pub.publisher">
+      Release date:
+      <input type="text" ng-model="pub.releaseDate">
+      Website:
+      <input type="text" ng-model="pub.website">
+      Summary:
+      <input type="text" ng-model="award.summary">
+      <button ng-click="deletePublication($index)" type="button">Delete publication</button>
+    </div>
+    <button ng-click="addPublication()" type="button">Add publication</button>
+  </section> <!-- end publications -->
+  <section class="languages">
+    <h3>Languages</h3>
+    <div ng-repeat="lang in cv.languages track by $index">
+      Name:
+      <input type="text" ng-model="lang.name">
+      Level:
+      <input type="text" ng-model="lang.level">
+      <button ng-click="deleteLanguage($index)" type="button">Delete language</button>
+    </div>
+    <button ng-click="addLanguage()" type="button">Add language</button>
+  </section> <!-- end languages -->
+  <section class="interests">
+    <h3>Interests</h3>
+    <div ng-repeat="interest in cv.interests track by $index">
+      Name:
+      <input type="text" ng-model="interest.name">
+      <button ng-click="deleteInterest($index)" type="button">Delete interest</button>
+      Keywords:
+      <ul ng-repeat="kw in interest.keywords track by $index">
+        <li>
+          <input type="text" ng-model="interest.keywords[$index]">
+          <span ng-click="deleteIntKeyword($parent.$index, $index)" class="glyphicon glyphicon-remove"></span>
+        </li>
+      </ul>
+      <button ng-click="addIntKeyword($index)" type="button">Add keyword</button>
+    </div>
+    <button ng-click="addInterest()" type="button">Add interest</button>
+  </section> <!-- end interest -->
+</section> <!-- end publications -->
+<section class="languages">
+  <h3>References</h3>
+  <div ng-repeat="ref in cv.references track by $index">
+    Name:
+    <input type="text" ng-model="ref.name">
+    Reference:
+    <input type="text" ng-model="ref.reference">
+    <button ng-click="deleteReference($index)" type="button">Delete reference</button>
   </div>
+  <button ng-click="addReference()" type="button">Add reference</button>
+</section> <!-- end references -->
   <button id="save" type="button" name="button">Save</button>
 </div> <!-- end edit panel -->
 
@@ -81,8 +222,8 @@
     {{volunteer.startDate}}
     {{volunteer.endDate}}
     {{volunteer.summary}}
-    <ul ng-repeat="hl in volunteer.highlights">
-      <li>{{hl}}</li>
+    <ul ng-repeat="hl in volunteer.highlights track by $index">
+      <li>{{volunteer.highlights[$index]}}</li>
     </ul>
   </div>
   <h2 ng-if="cv.education.length > 0">EDUCATION</h2>
@@ -93,8 +234,8 @@
     {{edu.startDate}}
     {{edu.endDate}}
     {{edu.gpa}}
-    <ul ng-repeat="course in edu.courses">
-      <li>{{course}}</li>
+    <ul ng-repeat="course in edu.courses track by $index">
+      <li>{{edu.courses[$index]}}</li>
     </ul>
   </div>
   <h2 ng-if="cv.awards.length > 0">AWARDS</h2>
@@ -120,8 +261,8 @@
   <h2 ng-if="cv.interests.length > 0">INTERESTS</h2>
   <div ng-repeat="interest in cv.interests">
     {{interest.name}}
-    <ul ng-repeat="keyword in interest.keywords">
-      <li>{{keyword}}</li>
+    <ul ng-repeat="keyword in interest.keywords track by $index">
+      <li>{{interest.keywords[$index]}}</li>
     </ul>
   </div>
   <h2 ng-if="cv.references.length > 0">REFERENCES</h2>
