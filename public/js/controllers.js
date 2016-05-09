@@ -42,5 +42,20 @@ webcvControllers.controller('EditCVCtrl',
     $scope.addSkill = function() {
       $scope.cv.skills.push({ name: "", level: "", keywords: [""]});
     }
+
+    /* Delete skill dynamically */
+    $scope.deleteSkill = function(index) {
+      $scope.cv.skills.splice(index, 1);
+    }
+
+    /* Add skill keyword dynamically */
+    $scope.addSkillKeyword = function(skill_idx) {
+      $scope.cv.skills[skill_idx].keywords.push("");
+    }
+
+    /* Delete skill keyword dynamically */
+    $scope.deleteSkillKeyword = function(skill_idx, keyword_idx) {
+      $scope.cv.skills[skill_idx].keywords.splice(keyword_idx, 1);
+    }
   }
 );

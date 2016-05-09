@@ -11,17 +11,19 @@
   Summary:
   <input type="text" ng-model="cv.basics.summary">
   <h3>Skills</h3>
-  <div ng-repeat="skill in cv.skills">
+  <div ng-repeat="skill in cv.skills track by $index">
     Name:
     <input type="text" ng-model="skill.name">
     Level:
     <input type="text" ng-model="skill.level">
+    <button ng-click="deleteSkill($index)" type="button">Delete skill</button>
     Keywords:
     <ul ng-repeat="kw in skill.keywords track by $index">
-      <li><input type="text" ng-model="skill.keywords[$index]"></li>
+      <li><input type="text" ng-model="skill.keywords[$index]"><span ng-click="deleteSkillKeyword($parent.$index, $index)" class="glyphicon glyphicon-remove"></span></li>
     </ul>
+    <button ng-click="addSkillKeyword($index)" type="button">Add keyword</button>
   </div>
-  <button ng-click="addSkill()" type="button" >Add skill</button>
+  <button ng-click="addSkill()" type="button">Add skill</button>
   <h3>Experience</h3>
   <div ng-repeat="work in cv.work">
     Company:
