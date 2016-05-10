@@ -3,6 +3,9 @@ A basic npm module to add a CV to your node.js web site and edit it online.
 Built using [MEAN](https://en.wikipedia.org/wiki/MEAN_(software_bundle)) stack.
 
 ## Screenshots
+<img src="https://raw.githubusercontent.com/mvidalgarcia/webcv/master/screenshots/1.png"/>
+<hr>
+<img src="https://raw.githubusercontent.com/mvidalgarcia/webcv/master/screenshots/2.png"/>
 
 ## Requirements
 - Node.js
