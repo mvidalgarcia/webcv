@@ -1,0 +1,65 @@
+/* General */
+
+.section-title  {
+  color: #BC1B39;
+}
+
+.grey {
+  color: #777;
+}
+
+.lead {
+  margin-bottom: auto;
+}
+
+/******** CV itself ********/
+
+/* Personal section */
+
+.contact-info {
+  padding: 1em 0;
+}
+
+.contact-info>* {
+  padding-right: 1em;
+}
+
+/* Skills section */
+
+.dl-horizontal dt {
+  width: auto;
+}
+
+/******** CV editor ********/
+
+.edit-panel {
+    border-right: 1px solid #AAA;
+    /* Allows scroll in editor */
+    height: 1900px;
+    overflow-y: scroll;
+}
+
+.glyphicon-remove, .glyphicon-plus {
+  cursor: pointer;
+}
+
+.glyphicon-remove {
+  color: #BC1B39
+}
+
+.glyphicon-plus {
+  color: green;
+}
+
+textarea {
+  height: 120px;
+  width: 400px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.save-buttons {
+  padding: 3em 0;
+}

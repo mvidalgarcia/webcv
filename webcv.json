@@ -1,12 +1,12 @@
 {
   "basics": {
-    "name": "John Doe",
+    "name": "Richard Hendriks",
     "label": "Programmer",
     "picture": "",
-    "email": "john@gmail.com",
+    "email": "richard.hendriks@mail.com",
     "phone": "(912) 555-4321",
-    "website": "http://johndoe.com",
-    "summary": "A summary of John Doe...",
+    "website": "http://richardhendricks.com",
+    "summary": "He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!) Before starting Pied Piper, he worked for Hooli as a part time software developer. While his work focuses on applied information theory, mostly optimizing lossless compression schema of both the length-limited and adaptive variants, his non-work interests range widely, everything from quantum computing to chaos theory. He could tell you about it, but THAT would NOT be a “length-limited” conversation!",
     "location": {
       "address": "2712 Broadway St",
       "postalCode": "CA 94115",
@@ -21,36 +21,38 @@
     }]
   },
   "work": [{
-    "company": "Company",
-    "position": "President",
-    "website": "http://company.com",
-    "startDate": "2013-01-01",
-    "endDate": "2014-01-01",
-    "summary": "Description...",
+    "company": "Pied Piper",
+    "position": "CEO/President",
+    "website": "http://www.piedpiper.com/",
+    "startDate": "Dec 2013",
+    "endDate": "Dec 2014",
+    "summary": "Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
     "highlights": [
-      "Started the company"
+      "Build an algorithm for artist to detect if their music was violating copy right infringement laws",
+      "Optimized an algorithm that holds the current world record for Weisman Scores"
     ]
   }],
   "volunteer": [{
-    "organization": "Organization",
-    "position": "Volunteer",
-    "website": "http://organization.com/",
-    "startDate": "2012-01-01",
-    "endDate": "2013-01-01",
-    "summary": "Description...",
+    "organization": "CoderDojo",
+    "position": "Teacher",
+    "website": "http://coderdojo.com/",
+    "startDate": "Jan 2012",
+    "endDate": "Jan 2013",
+    "summary": "Global movement of free coding clubs for young people.",
     "highlights": [
-      "Awarded 'Volunteer of the Month'"
+      "Awarded 'Teacher of the Month'"
     ]
   }],
   "education": [{
-    "institution": "University",
+    "institution": "University of Oklahoma",
     "area": "Software Development",
     "studyType": "Bachelor",
-    "startDate": "2011-01-01",
-    "endDate": "2013-01-01",
+    "startDate": "Jan 2010",
+    "endDate": "Jan 2013",
     "gpa": "4.0",
     "courses": [
-      "DB1101 - Basic SQL"
+      "DB1101 - Basic SQL",
+      "Shapping up with AngularJS"
     ]
   }],
   "awards": [{
@@ -60,11 +62,11 @@
     "summary": "There is no spoon."
   }],
   "publications": [{
-    "name": "Publication",
-    "publisher": "Company",
+    "name": "Video compression for 3d media",
+    "publisher": "Hooli",
     "releaseDate": "2014-10-01",
     "website": "http://publication.com",
-    "summary": "Description..."
+    "summary": "Innovative middle-out compression algorithm that changes the way we store data."
   }],
   "skills": [{
     "name": "Web Development",
@@ -74,10 +76,23 @@
       "CSS",
       "Javascript"
     ]
+  },
+  {
+    "name": "Internet of Things",
+    "level": "Medium",
+    "keywords": [
+      "Raspberry Pi",
+      "Sensors",
+      "Arduino"
+    ]
   }],
   "languages": [{
-    "name": "English",
+    "name": "Spanish",
     "level": "Native speaker"
+  },
+  {
+    "name": "English",
+    "level": "Fluent"
   }],
   "interests": [{
     "name": "Wildlife",
@@ -87,7 +102,12 @@
     ]
   }],
   "references": [{
-    "name": "Jane Doe",
-    "reference": "Reference..."
-  }]
+    "name": "Erlich Bachman",
+    "reference": "It is my pleasure to recommend Richard, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+  },
+  {
+    "name": "Mr. Lorem",
+    "reference": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  }
+]
 }
