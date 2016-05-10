@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');  // For parsing PUT request body
 var fs = require('fs');  // For reading files
 var path = require('path');
+var MongoClient = require('mongodb').MongoClient;
 
 var DEFAULT_FILENAME = 'webcv.json';
 var DEFAULT_URL = 'cv';
@@ -35,12 +36,50 @@ var webcv = function(app, opt) {
   app.get('/api/'+url, function (req, res, next) {
     console.log('Incoming request to /api/'+url);
 
+    MongoClient.connect('mongodb://localhost:27017/webcv', function(err, db) {
+      if (err) {
+        throw err;
+      }
+      /* Retrieve CV from database and serve it in JSON */
+      db.collection('cv').findOne({}, function(err, document) {
+        if (err) {
+          throw err;
+        }
+        res.json(document);
+        db.close();
+      });
+    });
+
+  });
+
+  /*
+   * HTTP GET to load JSON CV from file and store it in DB
+   */
+  app.get('/api/load', function (req, res, next) {
+    console.log('Incoming request to /api/load');
+
     /* Read file asynchronously */
     var obj;
     fs.readFile(filename, 'utf8', function (err, data) {
       if (err) throw err;
-      obj = JSON.parse(data);
-      res.json(obj);
+      jsonCV = JSON.parse(data);
+    });
+
+    MongoClient.connect('mongodb://localhost:27017/webcv', function(err, db) {
+      if (err) {
+        throw err;
+      }
+      /* Replacing the only collection we have for the new loaded JSON */
+      db.collection('cv').drop();
+      db.collection('cv').insertOne(jsonCV, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        console.log("CV loaded from JSON file");
+        console.log(result.result);
+        res.send('GET request received, CV loaded from JSON file');
+        db.close();
+      });
     });
 
   });
@@ -54,9 +93,26 @@ var webcv = function(app, opt) {
    * HTTP PUT to update CV changes in database
    */
    app.put('/api/save', function (req, res) {
-     console.log(req.body);
-     console.log('Incoming request to /api/save');
-     res.send('PUT request received, CV changes saved');
+    //  console.log(req.body);
+    console.log('Incoming request to /api/save');
+
+    MongoClient.connect('mongodb://localhost:27017/webcv', function(err, db) {
+      if (err) {
+        throw err;
+      }
+      /* Replacing the only collection we have for the new one */
+      db.collection('cv').drop();
+      db.collection('cv').insertOne(req.body, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        console.log("New CV saved");
+        console.log(result.result);
+        res.send('PUT request received, CV changes saved');
+        db.close();
+      });
+    });
+
    });
 
   /*

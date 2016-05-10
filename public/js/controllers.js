@@ -24,7 +24,7 @@ webcvControllers.controller('CVCtrl',
  * Edit CV Controller
  */
 webcvControllers.controller('EditCVCtrl',
-  function($rootScope, $scope, $http) {
+  function($rootScope, $scope, $http, $location) {
     /* Request JSON CV from internal API */
     $http.get('/api/cv').success(function( data ) {
       /* Fill angular $scope with CV information */
@@ -35,19 +35,29 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Save changes made in $scope in database  */
     $scope.saveCV = function() {
-      console.log($scope);
       /* PUT request to store changes made on CV */
       $http.put('/api/save', $scope.cv)
       .then(
         function(response){
          // success callback
          console.log(response);
+         /* Go to CV index page to show the changes */
+         $location.path( "/" );
         },
         function(response){
          // failure callback
          console.log(response);
         }
       );
+    }
+
+    /* Load JSON file CV in database */
+    $scope.loadJSON = function() {
+      $http.get('/api/load').success(function( res ) {
+        console.log(res);
+        /* Go to CV index page to show the changes */
+        $location.path( "/" );
+      });
     }
 
     /* Add skill dynamically */
