@@ -172,19 +172,18 @@
     </div>
     <button ng-click="addInterest()" type="button">Add interest</button>
   </section> <!-- end interest -->
-</section> <!-- end publications -->
-<section class="languages">
-  <h3>References</h3>
-  <div ng-repeat="ref in cv.references track by $index">
-    Name:
-    <input type="text" ng-model="ref.name">
-    Reference:
-    <input type="text" ng-model="ref.reference">
-    <button ng-click="deleteReference($index)" type="button">Delete reference</button>
-  </div>
-  <button ng-click="addReference()" type="button">Add reference</button>
-</section> <!-- end references -->
-  <button id="save" type="button" name="button">Save</button>
+  <section class="languages">
+    <h3>References</h3>
+    <div ng-repeat="ref in cv.references track by $index">
+      Name:
+      <input type="text" ng-model="ref.name">
+      Reference:
+      <input type="text" ng-model="ref.reference">
+      <button ng-click="deleteReference($index)" type="button">Delete reference</button>
+    </div>
+    <button ng-click="addReference()" type="button">Add reference</button>
+  </section> <!-- end references -->
+  <button ng-click="saveCV()" type="button">Save</button>
 </div> <!-- end edit panel -->
 
 <div class='cv-panel container col-md-8'>

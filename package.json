@@ -7,10 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install"
   },
-  "keywords": ["web", "CV", "json"],
+  "keywords": [
+    "web",
+    "CV",
+    "json"
+  ],
   "author": "Marco Vidal García <marcovidal67@gmail.com> (http://mvidalgarcia.com)",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "express": "^4.13.4"
   }
 }

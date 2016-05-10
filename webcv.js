@@ -1,4 +1,5 @@
 var express = require('express');
+var bodyParser = require('body-parser');  // For parsing PUT request body
 var fs = require('fs');  // For reading files
 var path = require('path');
 
@@ -24,6 +25,10 @@ var webcv = function(app, opt) {
 
   console.log('Executing webcv, serving in [/api]/' + url + '...');
 
+  /* Configuring express to use body-parser as middleware. */
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.json());
+
   /*
    * HTTP GET to provide API with CV info
    */
@@ -44,6 +49,15 @@ var webcv = function(app, opt) {
    * HTTP GET to provide static files (AngularJS app)
    */
   app.use('/cv', express.static(path.join(__dirname, '/public')));
+
+  /*
+   * HTTP PUT to update CV changes in database
+   */
+   app.put('/api/save', function (req, res) {
+     console.log(req.body);
+     console.log('Incoming request to /api/save');
+     res.send('PUT request received, CV changes saved');
+   });
 
   /*
    * Optional ExpressJS Listen

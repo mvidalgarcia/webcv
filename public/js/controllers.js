@@ -33,10 +33,22 @@ webcvControllers.controller('EditCVCtrl',
       $rootScope.title = data.basics.name;
     });
 
-    /* TODO showing scope for now  */
-    $('#save').click(function() {
+    /* Save changes made in $scope in database  */
+    $scope.saveCV = function() {
       console.log($scope);
-    });
+      /* PUT request to store changes made on CV */
+      $http.put('/api/save', $scope.cv)
+      .then(
+        function(response){
+         // success callback
+         console.log(response);
+        },
+        function(response){
+         // failure callback
+         console.log(response);
+        }
+      );
+    }
 
     /* Add skill dynamically */
     $scope.addSkill = function() {
