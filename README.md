@@ -1,6 +1,8 @@
 # webcv
 A basic npm module to add a CV to your node.js web site and edit it online.
-Built using [MEAN](https://en.wikipedia.org/wiki/MEAN_(software_bundle)) stack.
+Built using [MEAN](https://en.wikipedia.org/wiki/MEAN_(software_bundle)) stack.  
+  
+[![npm](https://img.shields.io/npm/v/webcv.svg?style=flat-square)](http://www.npmjs.org/webcv)
 
 ## Screenshots
 <img src="https://raw.githubusercontent.com/mvidalgarcia/webcv/master/screenshots/1.png"/>
@@ -66,4 +68,4 @@ Execute script in a different terminal:
 node app.js
 ```
 
-Access your CV from [localhost/cv](http://localhost:8080/cv/) and edit it or load JSON from [localhost/cv/#/edit](http://localhost:8080/cv/#/edit)
+Access your CV from [localhost/cv](http://localhost:8080/cv/) and edit it or load JSON from [localhost/cv/#/edit](http://localhost:8080/cv/#/edit). Prior to load CV from JSON, place the JSON file in the project root following the [example](https://github.com/mvidalgarcia/webcv/blob/master/webcv.json) format.
