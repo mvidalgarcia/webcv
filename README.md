@@ -16,7 +16,7 @@ Built using [MEAN](https://en.wikipedia.org/wiki/MEAN_(software_bundle)) stack.
 
 Just install `webcv` using npm:
 
-````
+```shell
 npm install webcv --save
 ```
 
