@@ -69,3 +69,10 @@ node app.js
 ```
 
 Access your CV from [localhost/cv](http://localhost:8080/cv/) and edit it or load JSON from [localhost/cv/#/edit](http://localhost:8080/cv/#/edit). Prior to load CV from JSON, place the JSON file in the project root following the [example](https://github.com/mvidalgarcia/webcv/blob/master/webcv.json) format.
+
+## License
+Copyright © 2016 Marco Vidal García <marcovidal67@gmail.com>
+
+This work is free. You can redistribute it and/or modify it under the
+terms of the [MIT License](https://opensource.org/licenses/ISC).
+See LICENSE for full details.
