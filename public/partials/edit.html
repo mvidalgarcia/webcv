@@ -154,7 +154,7 @@
           <textarea type="text" ng-model="award.summary"></textarea>
         </p>
       </div>
-      <a ng-click="addAward()">Add award</a>
+      <button ng-click="addAward()" class="btn btn-default">Add award</button>
     </section> <!-- end awards -->
     <section class="publications">
       <h3>Publications</h3>
@@ -240,21 +240,22 @@
       <a href="{{cv.basics.website}}">{{cv.basics.website}}</a>
     </div>
     <p>{{cv.basics.summary}}</p>
-    <h3 class="section-title" ng-if="cv.skills.length > 0">SKILLS</h3>
-    <div ng-repeat="skill in cv.skills">
-
-      <dl class="dl-horizontal">
-        <dt>
-          <label>{{skill.name}}</label>
-          <small class="grey">{{skill.level}}</small>
-        </dt>
-        <dd>
-          <span ng-repeat="keyword in skill.keywords">
-            {{keyword}}
-          </span>
-        </dd>
-      </dl>
-    </div>
+    <section class="skills">
+      <h3 class="section-title" ng-if="cv.skills.length > 0">SKILLS</h3>
+      <div ng-repeat="skill in cv.skills">
+        <dl class="dl-horizontal">
+          <dt>
+            <label>{{skill.name}}</label>
+            <small class="grey">{{skill.level}}</small>
+          </dt>
+          <dd>
+            <span ng-repeat="keyword in skill.keywords track by $index">
+              {{keyword}}
+            </span>
+          </dd>
+        </dl>
+      </div>
+    </section>
     <section class="experience">
       <h3 class="section-title" ng-if="cv.work.length > 0">EXPERIENCE</h3>
       <div ng-repeat="work in cv.work">
@@ -262,7 +263,7 @@
         <p class="lead"> {{work.startDate}} - {{work.endDate}}</p>
         <a href="{{work.website}}">{{work.website}}</a>
         <p>{{work.summary}}</p>
-        <ul ng-repeat="hl in work.highlights">
+        <ul ng-repeat="hl in work.highlights track by $index">
           <li>{{hl}}</li>
         </ul>
       </div>
@@ -274,7 +275,7 @@
         <p class="lead"> {{volunteer.startDate}} - {{volunteer.endDate}}</p>
         <a href="{{volunteer.website}}">{{volunteer.website}}</a>
         <p>{{volunteer.summary}}</p>
-        <ul ng-repeat="hl in volunteer.highlights">
+        <ul ng-repeat="hl in volunteer.highlights track by $index">
           <li>{{hl}}</li>
         </ul>
       </div>
@@ -286,45 +287,55 @@
         <p class="lead"> {{edu.startDate}} - {{edu.endDate}}</p>
         <p>{{edu.studyType}} in {{edu.area}}, GPA: {{edu.gpa}}</p>
         Courses:
-        <ul ng-repeat="course in edu.courses">
+        <ul ng-repeat="course in edu.courses track by $index">
           <li>{{course}}</li>
         </ul>
       </div>
     </section>
+    <section class="awards">
     <h3 class="section-title" ng-if="cv.awards.length > 0">AWARDS</h3>
-    <div ng-repeat="award in cv.awards">
-      <h4>{{award.title}}</h4>
-      <p class="lead">{{award.date}}</p>
-      {{award.awarder}}
-      <p>{{award.summary}}</p>
-    </div>
-    <h3 class="section-title" ng-if="cv.publications.length > 0">PUBLICATIONS</h3>
-    <div ng-repeat="publication in cv.publications">
-      <h4>{{publication.name}}</h4>
-      <p class="lead">{{publication.releaseDate}}</p>
-      <p>{{publication.publisher}}</p>
-      <a href="{{publication.website}}">Link</a>
-      <p>{{publication.summary}}</p>
-    </div>
-    <h3 class="section-title" ng-if="cv.languages.length > 0">LANGUAGES</h3>
-    <div ng-repeat="lang in cv.languages">
-      <label>{{lang.name}} </label>
-      <small class="grey"> {{lang.level}}</small>
-    </div>
-    <h3 class="section-title" ng-if="cv.interests.length > 0">INTERESTS</h3>
-    <div ng-repeat="interest in cv.interests">
-      {{interest.name}}
-      <ul ng-repeat="keyword in interest.keywords">
-        <li>{{keyword}}</li>
-      </ul>
-    </div>
-    <h3 class="section-title" ng-if="cv.references.length > 0">REFERENCES</h3>
-    <div ng-repeat="reference in cv.references">
-      <blockquote>
-        <p>{{reference.reference}}</p>
-        <footer><cite title="Source Title">{{reference.name}}</cite></footer>
-      </blockquote>
-    </div>
+      <div ng-repeat="award in cv.awards">
+        <h4>{{award.title}}</h4>
+        <p class="lead">{{award.date}}</p>
+        {{award.awarder}}
+        <p>{{award.summary}}</p>
+      </div>
+    </section>
+    <section class="publications">
+      <h3 class="section-title" ng-if="cv.publications.length > 0">PUBLICATIONS</h3>
+      <div ng-repeat="publication in cv.publications">
+        <h4>{{publication.name}}</h4>
+        <p class="lead">{{publication.releaseDate}}</p>
+        <p>{{publication.publisher}}</p>
+        <a href="{{publication.website}}">Link</a>
+        <p>{{publication.summary}}</p>
+      </div>
+    </section>
+    <section class="languages">
+      <h3 class="section-title" ng-if="cv.languages.length > 0">LANGUAGES</h3>
+      <div ng-repeat="lang in cv.languages">
+        <label>{{lang.name}} </label>
+        <small class="grey"> {{lang.level}}</small>
+      </div>
+    </section>
+    <section class="interests">
+      <h3 class="section-title" ng-if="cv.interests.length > 0">INTERESTS</h3>
+      <div ng-repeat="interest in cv.interests">
+        {{interest.name}}
+        <ul ng-repeat="keyword in interest.keywords track by $index">
+          <li>{{keyword}}</li>
+        </ul>
+      </div>
+    </section>
+    <section class="references">
+      <h3 class="section-title" ng-if="cv.references.length > 0">REFERENCES</h3>
+      <div ng-repeat="reference in cv.references">
+        <blockquote>
+          <p>{{reference.reference}}</p>
+          <footer><cite title="Source Title">{{reference.name}}</cite></footer>
+        </blockquote>
+      </div>
+    </section>
   </div> <!-- end CV panel -->
 
 </div> <!-- end main container -->

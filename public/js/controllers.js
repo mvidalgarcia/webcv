@@ -28,9 +28,14 @@ webcvControllers.controller('EditCVCtrl',
     /* Request JSON CV from internal API */
     $http.get('/api/cv').success(function( data ) {
       /* Fill angular $scope with CV information */
-      $scope.cv = data;
+      $scope.cv = data || {};
       /* Dynamically change HTML title field */
-      $rootScope.title = data.basics.name;
+      if (data) {
+        $rootScope.title = data.basics.name;
+      }
+      else {
+        $rootScope.title = 'unnamed';
+      }
     });
 
     /* Save changes made in $scope in database  */
@@ -62,6 +67,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add skill dynamically */
     $scope.addSkill = function() {
+      if (!('skills' in $scope.cv)) {
+        $scope.cv.skills = [];
+      }
       $scope.cv.skills.push({ name: "", level: "", keywords: [""]});
     }
 
@@ -82,6 +90,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add experience dynamically */
     $scope.addExperience = function() {
+      if (!('work' in $scope.cv)) {
+        $scope.cv.work = [];
+      }
       $scope.cv.work.push({company: "", position: "", website: "", startDate: "",
        endDate: "", summary: "", highlights: [""]});
     }
@@ -103,6 +114,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add volunteering dynamically */
     $scope.addVolunteering = function() {
+      if (!('volunteer' in $scope.cv)) {
+        $scope.cv.volunteer = [];
+      }
       $scope.cv.volunteer.push({organization: "", position: "", website: "", startDate: "",
        endDate: "", summary: "", highlights: [""]});
     }
@@ -124,6 +138,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add education dynamically */
     $scope.addEducation = function() {
+      if (!('education' in $scope.cv)) {
+        $scope.cv.education = [];
+      }
       $scope.cv.education.push({institution: "", area: "", studyType: "", startDate: "",
       endDate: "", gpa: "", courses: [""]});
     }
@@ -145,6 +162,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add award dynamically */
     $scope.addAward = function() {
+      if (!('awards' in $scope.cv)) {
+        $scope.cv.awards = [];
+      }
       $scope.cv.awards.push({title: "", date: "", awarder: "",summary: ""});
     }
 
@@ -155,6 +175,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add publication dynamically */
     $scope.addPublication = function() {
+      if (!('publications' in $scope.cv)) {
+        $scope.cv.publications = [];
+      }
       $scope.cv.publications.push({name: "", publisher: "", releaseDate: "", website: "", summary: ""});
     }
 
@@ -165,6 +188,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add language dynamically */
     $scope.addLanguage = function() {
+      if (!('languages' in $scope.cv)) {
+        $scope.cv.languages = [];
+      }
       $scope.cv.languages.push({name: "", level: ""});
     }
 
@@ -175,6 +201,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add interest dynamically */
     $scope.addInterest = function() {
+      if (!('interests' in $scope.cv)) {
+        $scope.cv.interests = [];
+      }
       $scope.cv.interests.push({name: "", keywords: [""]});
     }
 
@@ -195,6 +224,9 @@ webcvControllers.controller('EditCVCtrl',
 
     /* Add reference dynamically */
     $scope.addReference = function() {
+      if (!('references' in $scope.cv)) {
+        $scope.cv.references = [];
+      }
       $scope.cv.references.push({name: "", reference: ""});
     }
 
