@@ -1,6 +1,6 @@
 {
   "name": "webcv",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add easily your CV to your web and edit it online",
   "main": "webcv.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "keywords": [
     "web",
     "CV",
-    "editor"
+    "editor",
     "MEAN",
     "json",
     "angular",
